@@ -11,7 +11,6 @@ RUN service apache2 start && \
 # MySQL
 COPY mysql_secure_installation.sql /tmp/
 COPY create_database.sql /tmp/
-COPY data/prestashop.sql /tmp/
 RUN apt-get install -y mysql-server && \
     service mysql start && \
     mysql -u root < /tmp/mysql_secure_installation.sql && \
