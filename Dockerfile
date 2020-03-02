@@ -22,5 +22,7 @@ COPY 99-karbonowy.ini /usr/local/etc/php/conf.d/
 # Utils
 RUN apt-get install -y less vim
 
+COPY log.cnf /etc/mysql/conf.d/
+
 COPY docker_run_karbonowy.sh /tmp/
 CMD /tmp/docker_run_karbonowy.sh
