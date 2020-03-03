@@ -19,6 +19,9 @@ RUN apt-get install -y mysql-server && \
 # PHP
 COPY 99-karbonowy.ini /usr/local/etc/php/conf.d/
 
+# Postfix
+RUN apt-get install -y postfix
+
 # Utils
 RUN apt-get install -y less vim
 
