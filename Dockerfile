@@ -1,4 +1,5 @@
 FROM prestashop/prestashop:1.7
+SHELL ["/bin/bash", "-c"]
 
 RUN apt-get update
 
@@ -20,7 +21,9 @@ RUN apt-get install -y mysql-server && \
 COPY 99-karbonowy.ini /usr/local/etc/php/conf.d/
 
 # Postfix
-RUN apt-get install -y postfix
+RUN debconf-set-selections <<< "postfix postfix/mailname string karbonowy.pl" && \
+    debconf-set-selections <<< "postfix postfix/main_mailer_type string 'Internet Site'" && \
+    apt-get install -y postfix
 
 # Utils
 RUN apt-get install -y less vim
