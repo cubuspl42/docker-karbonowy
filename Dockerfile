@@ -25,6 +25,14 @@ RUN debconf-set-selections <<< "postfix postfix/mailname string karbonowy.pl" &&
     debconf-set-selections <<< "postfix postfix/main_mailer_type string 'Internet Site'" && \
     apt-get install -y postfix
 
+# IonCube
+RUN curl -fSL 'http://downloads3.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.tar.gz' -o /tmp/ioncube.tar.gz && \
+    mkdir -p /tmp/ioncube && \
+    tar -xf /tmp/ioncube.tar.gz -C /tmp/ioncube --strip-components=1 && \
+    rm /tmp/ioncube.tar.gz && \
+    mv /tmp/ioncube/ioncube_loader_lin_5.6.so /var/www/ && \
+    rm -r /tmp/ioncube
+
 # Utils
 RUN apt-get install -y less vim
 
