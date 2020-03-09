@@ -1,3 +1,3 @@
 service mysql start
 service memcached start
-service apache2 start
+exec apache2-foreground
