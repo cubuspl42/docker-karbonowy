@@ -1,2 +1,3 @@
 service mysql start
-/tmp/docker_run.sh
+service memcached start
+service apache2 start

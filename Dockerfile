@@ -33,6 +33,9 @@ RUN curl -fSL 'http://downloads3.ioncube.com/loader_downloads/ioncube_loaders_li
     mv /tmp/ioncube/ioncube_loader_lin_5.6.so /var/www/ && \
     rm -r /tmp/ioncube
 
+# memcached
+RUN apt-get install -y memcached libmemcached-tools
+
 # Utils
 RUN apt-get install -y less vim
 
