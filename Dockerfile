@@ -23,7 +23,7 @@ COPY 99-karbonowy.ini /usr/local/etc/php/conf.d/
 # Postfix
 RUN debconf-set-selections <<< "postfix postfix/mailname string karbonowy.pl" && \
     debconf-set-selections <<< "postfix postfix/main_mailer_type string 'Internet Site'" && \
-    apt-get install -y postfix
+    apt-get install -y syslog-ng postfix
 
 # IonCube
 RUN curl -fSL 'http://downloads3.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.tar.gz' -o /tmp/ioncube.tar.gz && \
