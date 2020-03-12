@@ -39,6 +39,16 @@ RUN apt-get install -y memcached libmemcached-tools
 # Utils
 RUN apt-get install -y less vim
 
+# cron
+COPY x13allegro-sync.sh /bin/
+COPY x13allegro.cron /etc/cron.d/x13allegro.cron
+RUN apt-get -y install cron && \
+    chmod 0644 /etc/cron.d/x13allegro.cron && \
+    crontab /etc/cron.d/x13allegro.cron
+
+# Create the log file to be able to run tail
+RUN touch /var/log/cron.log
+
 COPY log.cnf /etc/mysql/conf.d/
 
 COPY docker_run_karbonowy.sh /tmp/

@@ -1,0 +1,1 @@
+*/5 * * * * /bin/x13allegro-sync.sh >> /var/log/cron.log 2>&1
