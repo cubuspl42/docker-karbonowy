@@ -1,4 +1,4 @@
-FROM prestashop/prestashop:1.7
+FROM prestashop/prestashop:1.6
 SHELL ["/bin/bash", "-c"]
 
 RUN apt-get update
