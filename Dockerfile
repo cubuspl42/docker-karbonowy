@@ -1,4 +1,4 @@
-FROM prestashop/prestashop:1.6
+FROM ubuntu:20.04
 SHELL ["/bin/bash", "-c"]
 
 RUN apt-get update
@@ -7,16 +7,22 @@ RUN apt-get update
 RUN debconf-set-selections <<< "postfix postfix/mailname string karbonowy.pl" && \
     debconf-set-selections <<< "postfix postfix/main_mailer_type string 'Internet Site'"
 
+ENV DEBIAN_FRONTEND=noninteractive 
+
 # Install APT dependencies
 RUN apt-get install -y \
+            # Apache
+            apache2 \
+            # PHP
+            php7.4 libapache2-mod-php7.4 php7.4-gd php7.4-mbstring php7.4-mysql php7.4-curl php-xml php-cli php7.4-intl php7.4-zip \
             # MySQL
-            default-mysql-server \
+            mariadb-server \
             # Postfix
             syslog-ng postfix \
             # memcached
-            memcached libmemcached-tools \
+            memcached libmemcached-tools php-memcached \
             # utils
-            less vim \
+            curl less unzip vim \
             # cron
             cron
 
@@ -44,6 +50,9 @@ RUN service mysql start && \
 
 # Configure PHP
 COPY 99-karbonowy.ini /usr/local/etc/php/conf.d/
+
+# Configure Memcached
+COPY memcached.conf /etc/memcached.conf
 
 # Configure Allegro sync
 COPY x13allegro-sync.sh /bin/
