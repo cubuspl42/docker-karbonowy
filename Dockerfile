@@ -49,7 +49,16 @@ RUN apt-get -y install cron && \
 # Create the log file to be able to run tail
 RUN touch /var/log/cron.log
 
+# Initialize MySQL log
 COPY log.cnf /etc/mysql/conf.d/
+
+# SSL certificates management
+RUN curl https://get.acme.sh | sh
+
+COPY issue_certificate.sh /bin/
+
+# root user shell configuration
+COPY bashrc.bash /root/.bashrc
 
 COPY docker_run_karbonowy.sh /tmp/
 CMD /tmp/docker_run_karbonowy.sh
