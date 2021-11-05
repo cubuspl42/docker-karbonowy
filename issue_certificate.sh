@@ -2,8 +2,8 @@
 
 PATH=$PATH:"/root/.acme.sh"
 
-# Issue the certificate using Apache mode
-acme.sh --issue --apache \
+# Issue the certificate using standalonee mode (Apache can't be on)
+acme.sh --issue --standalonee \
         # -d karbonowy.pl -d www.karbonowy.pl \
         -d new.karbonowy.pl \
         --server letsencrypt

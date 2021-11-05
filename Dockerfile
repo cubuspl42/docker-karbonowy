@@ -60,4 +60,5 @@ COPY issue_certificate.sh /bin/
 # root user shell configuration
 COPY bashrc.bash /root/.bashrc
 
-COPY docker_run_karbonowy.sh /bin/
+# Start-up script
+COPY start.sh /root/bin/

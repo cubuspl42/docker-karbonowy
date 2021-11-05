@@ -6,4 +6,4 @@ docker run --name karbonowy -ti -p 80:80 -p 443:443 \
 -d \
 --restart always \
 karbonowy \
-/root/bin/start.sh
+/bin/bash
