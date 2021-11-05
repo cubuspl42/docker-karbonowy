@@ -25,7 +25,8 @@ RUN curl -fSL 'http://downloads3.ioncube.com/loader_downloads/ioncube_loaders_li
     mkdir -p /tmp/ioncube && \
     tar -xf /tmp/ioncube.tar.gz -C /tmp/ioncube --strip-components=1 && \
     rm /tmp/ioncube.tar.gz && \
-    mv /tmp/ioncube/ioncube_loader_lin_7.3.so /var/www/ && \
+    # mv /tmp/ioncube/ioncube_loader_lin_7.3.so /var/www/ && \
+    mv /tmp/ioncube/ioncube_loader_lin_5.6_ts.so /var/www/ && \
     rm -r /tmp/ioncube
 
 ## Configure Apache
