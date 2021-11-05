@@ -5,4 +5,5 @@ docker run --name karbonowy -ti -p 80:80 -p 443:443 \
 -v karbonowy-mysql:/var/lib/mysql \
 -d \
 --restart always \
-karbonowy
+karbonowy \
+/bin/docker_run_karbonowy.sh
