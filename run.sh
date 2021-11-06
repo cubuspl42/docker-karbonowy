@@ -4,6 +4,7 @@ docker run --name karbonowy -ti -p 80:80 -p 443:443 \
 -v $CERT_ROOT:/var/cert \
 -v karbonowy-mysql:/var/lib/mysql \
 -d \
+--add-host host.docker.internal:host-gateway \
 --restart always \
 karbonowy \
 /root/bin/start.sh
