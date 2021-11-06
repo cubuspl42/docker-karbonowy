@@ -37,7 +37,7 @@ RUN curl -fSL 'http://downloads3.ioncube.com/loader_downloads/ioncube_loaders_li
 ## Configure Apache
 COPY ./default-ssl.conf /etc/apache2/sites-available/
 RUN service apache2 start && \
-    a2enmod rewrite \
+    a2enmod rewrite && \
     a2enmod ssl && \
     a2ensite default-ssl
 
