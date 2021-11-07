@@ -1,6 +1,7 @@
 #!/usr/bin/php
 <?php
 $argc == 2 or die('Usage: prestashop_set_domain <domain>');
+include 'fix_mysql.inc.php';
 include 'config/settings.inc.php';
 
 $link = mysql_connect('localhost', _DB_USER_, _DB_PASSWD_) or die('Could not connect: ' . mysql_error());

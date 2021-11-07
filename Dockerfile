@@ -74,5 +74,10 @@ COPY issue_certificate.sh /bin/
 # root user shell configuration
 COPY bashrc.bash /root/.bashrc
 
+# Utility scripts
+COPY fix_mysql.inc.php /root/bin/fix_mysql.inc.php
+COPY prestashop_set_domain.php /root/bin/prestashop_set_domain
+COPY prestashop_backup_site.sh /root/bin/prestashop_backup_site
+
 # Start-up script
 COPY start.sh /root/bin/
